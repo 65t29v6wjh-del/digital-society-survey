@@ -1,87 +1,122 @@
-<script>
-const SUPABASE_URL = 'https://bepruljjnztxpeufxigy.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_JyPnq-0TjfVPXX-tfW1Gbw_z4OLNbxW';
-
-const RESPONDENT_KEY = 'digitalSocietyRespondentId';
-const SUBMITTED_KEY = 'digitalSocietySubmitted';
-
-function getRespondentId() {
-    let id = localStorage.getItem(RESPONDENT_KEY);
-
-    if (!id) {
-        id = crypto.randomUUID();
-        localStorage.setItem(RESPONDENT_KEY, id);
-    }
-
-    return id;
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Changing Values | Society 2060</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+:root{
+  --ink:#16332d;--muted:#65756f;--paper:#f5f2e9;--card:rgba(255,255,255,.82);
+  --line:#d9dfd9;--green:#1e6a57;--green2:#6e9f78;--sand:#d9b86c;--soft:#e8efe9;
+  font-family:'DM Sans',Arial,sans-serif;color:var(--ink);background:var(--paper)
 }
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:
+radial-gradient(circle at 10% 0%,rgba(110,159,120,.22),transparent 31%),
+radial-gradient(circle at 95% 20%,rgba(217,184,108,.18),transparent 28%),
+linear-gradient(180deg,#f8f6ef 0%,#f1f4ed 100%);padding:0 18px 52px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.26;background-image:radial-gradient(#31594f 0.55px,transparent .55px);background-size:18px 18px;mask-image:linear-gradient(to bottom,black,transparent 55%)}
+.wrap{max-width:1040px;margin:auto;position:relative}.topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 4px 16px}.brand{display:flex;align-items:center;gap:11px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.02em}.brandmark{width:38px;height:38px;border-radius:12px;background:var(--ink);display:grid;place-items:center;color:white;box-shadow:0 8px 22px rgba(22,51,45,.16)}.brandmark svg{width:22px}.step{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:rgba(255,255,255,.6);border:1px solid rgba(30,106,87,.12);padding:8px 12px;border-radius:999px}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:54px 54px 48px;margin-bottom:24px;background:linear-gradient(135deg,#173b32,#245f4f 70%,#477b60);color:white;box-shadow:0 24px 70px rgba(28,63,53,.18)}.hero:after{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-80px;top:-115px;box-shadow:0 0 0 45px rgba(255,255,255,.035),0 0 0 90px rgba(255,255,255,.025)}.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:#d7e9de;margin-bottom:17px}.eyebrow:before{content:"";width:24px;height:2px;background:#d9b86c;border-radius:2px}.hero h1{font-family:Manrope,sans-serif;font-size:clamp(2.35rem,6vw,4.5rem);line-height:.98;letter-spacing:-.055em;margin:0 0 20px;max-width:760px}.hero p{font-size:1.08rem;line-height:1.65;color:#dce9e4;max-width:690px;margin:0}.hero strong{color:white}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.meta span{font-size:.82rem;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);padding:8px 11px;border-radius:999px;color:#eff7f3}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:var(--card);backdrop-filter:blur(15px);border:1px solid rgba(38,76,66,.11);border-radius:26px;padding:30px;box-shadow:0 14px 38px rgba(37,64,55,.075)}.card-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:4px}.number{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--green);font-family:Manrope,sans-serif;font-weight:800;font-size:.86rem;flex:none}.plot-title{font-family:Manrope,sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.025em;margin:0}.subtitle{font-size:.91rem;color:var(--muted);margin-top:4px;line-height:1.45}.plot-wrap{max-width:540px;margin:13px auto 0}svg{width:100%;height:auto;display:block;overflow:visible;cursor:crosshair}.triangle{fill:rgba(248,250,246,.8);stroke:#31594f;stroke-width:2.4;transition:.2s}.plot-wrap:hover .triangle{fill:#fbfcf9}.guide{stroke:#cfd9d2;stroke-width:1;stroke-dasharray:4 5}.dot{fill:#16332d;stroke:#fff;stroke-width:4;filter:drop-shadow(0 4px 5px rgba(22,51,45,.25));transition:r .15s}.label{font-size:16px;font-weight:700;fill:#25473e}.hint{text-align:center;font-size:.86rem;color:#71817b;margin-top:-3px}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.pill{background:#f3f6f1;border:1px solid #e1e8e1;border-radius:13px;padding:10px 8px;text-align:center;font-size:.78rem;color:#6c7c76}.pill b{display:block;color:var(--ink);font-size:1.02rem;margin-top:2px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;background:var(--green2)}
+.actions{margin-top:22px;text-align:center;padding:30px}.submit{border:0;border-radius:15px;padding:15px 28px;font-family:Manrope,sans-serif;font-size:.98rem;font-weight:800;background:var(--ink);color:white;cursor:pointer;box-shadow:0 10px 22px rgba(22,51,45,.18);transition:transform .18s,box-shadow .18s,opacity .18s}.submit:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(22,51,45,.23)}.submit:disabled{opacity:.28;cursor:not-allowed;box-shadow:none}.success{display:none;margin:16px auto 0;padding:12px 16px;border-radius:13px;max-width:520px;background:#e8f3ea;color:#23573f;font-weight:700}.note{font-size:.78rem;color:#82908b;margin-top:12px}.footer{text-align:center;color:#87938f;font-size:.76rem;margin-top:22px}.progress{height:5px;background:#e4e8e2;border-radius:999px;overflow:hidden;margin-bottom:22px}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--green),#8cab75);transition:width .35s ease}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{padding:42px 30px}.topbar{padding-top:18px}.card{padding:24px}.values{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:520px){body{padding:0 12px 36px}.hero{border-radius:24px;padding:35px 23px}.hero h1{font-size:2.55rem}.step{display:none}.card{border-radius:22px;padding:20px 15px}.label{font-size:14px}.values{gap:5px}.pill{font-size:.68rem;padding:8px 4px}.pill b{font-size:.9rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand"><span class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V10"/><path d="M12 13C8 13 5 10 5 6c4 0 7 3 7 7Z"/><path d="M12 10c0-4 3-7 7-7 0 4-3 7-7 7Z"/></svg></span> Society 2060</div>
+    <div class="step" id="stepLabel">Step 1 of 2</div>
+  </div>
 
-document.getElementById('submit').addEventListener('click', async () => {
+  <section class="hero" id="hero">
+    <div class="eyebrow">Digital Society Research</div>
+    <h1 id="heroTitle">What does society value today?</h1>
+    <p id="heroText">This short survey explores how society’s priorities may change between <strong>today</strong> and <strong>2060</strong>. First, show how you think society currently balances <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>. You will then see a future scenario and answer the same question again.</p>
+    <div class="meta"><span>2 questions</span><span>≈ 30 seconds</span><span>Anonymous response</span></div>
+  </section>
 
-    if (!state.today || !state.future) {
-        return;
-    }
+  <div class="progress"><span id="progress"></span></div>
 
-    if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
-        alert('You have already submitted a response.');
-        return;
-    }
+  <main>
+    <section class="card survey-page" id="pageToday">
+      <div class="card-head"><div><h2 class="plot-title">Society Today</h2><div class="subtitle">Where do you think society places its priorities now?</div></div><div class="number">01</div></div>
+      <div class="plot-wrap" id="today"></div>
+      <div class="page-action"><button id="continue" class="submit" disabled>Continue to 2060</button></div>
+    </section>
 
-    const button = document.getElementById('submit');
-
-    button.disabled = true;
-    button.textContent = 'Submitting...';
-
-    const responseData = {
-        respondent_id: getRespondentId(),
-
-        today_a: state.today[0],
-        today_b: state.today[1],
-        today_c: state.today[2],
-
-        future_a: state.future[0],
-        future_b: state.future[1],
-        future_c: state.future[2]
-    };
-
-    try {
-
-        const response = await fetch(
-            `${SUPABASE_URL}/rest/v1/survey_responses`,
-            {
-                method: 'POST',
-
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Prefer': 'return=minimal'
-                },
-
-                body: JSON.stringify(responseData)
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error(await response.text());
-        }
-
-        localStorage.setItem(SUBMITTED_KEY, 'true');
-
-        button.textContent = 'Response submitted';
-
-        document.getElementById('success').style.display = 'block';
-
-    } catch (error) {
-
-        console.error(error);
-
-        button.disabled = false;
-        button.textContent = 'Submit response';
-
-        alert(
-            'Your response could not be submitted. Please try again.'
-        );
-    }
+    <section class="survey-page hidden" id="pageFuture">
+      <section class="scenario-card">
+        <div class="eyebrow dark">Your 2060 scenario</div>
+        <h2>Imagine society in 2060</h2>
+        <p>By <strong>2030</strong>, increasingly frequent extreme weather makes repeated infrastructure repairs too costly. From <strong>2040</strong>, governments begin redesigning cities around climate adaptation instead.</p>
+        <p>By <strong>2060</strong>, cities are engineered for <strong>climate survival</strong>, with <strong>natural cooling</strong>, <strong>rooftop farms</strong>, <strong>green pedestrian corridors</strong> and <strong>sea walls</strong>. Communities in highly vulnerable areas may be <strong>relocated</strong>.</p>
+      </section>
+      <section class="card">
+        <div class="card-head"><div><h2 class="plot-title">Society in 2060</h2><div class="subtitle">In this future scenario, where do you think society would place its priorities?</div></div><div class="number">02</div></div>
+        <div class="plot-wrap" id="future"></div>
+        <div class="page-action"><button id="submit" class="submit" disabled>Submit response</button></div>
+        <div id="success" class="success">✓ Thank you. Your response has been recorded locally for this demo.</div>
+        <div class="note">Demo version · Responses are not yet connected to an online database.</div>
+      </section>
+    </section>
+  </main>
+  <div class="footer">MIS20070 · Digital Society · Values Research</div>
+</div>
+<style>
+.survey-page{max-width:720px;margin:0 auto}.hidden{display:none}.page-action{text-align:center;margin-top:24px}.scenario-card{margin:0 0 22px;background:linear-gradient(135deg,#e7efe8,#f7f3e8);border:1px solid rgba(38,76,66,.12);border-radius:26px;padding:30px;box-shadow:0 14px 38px rgba(37,64,55,.07)}.scenario-card h2{font-family:Manrope,sans-serif;font-size:1.65rem;letter-spacing:-.03em;margin:0 0 13px}.scenario-card p{color:#566963;line-height:1.65;margin:8px 0}.eyebrow.dark{color:var(--green)}.card.survey-page{padding:34px}.fade-in{animation:fadeIn .42s ease both}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@media(max-width:520px){.scenario-card{padding:23px;border-radius:22px}.card.survey-page{padding:22px 15px}}
+</style>
+<script>
+const V=['Value A','Value B','Value C'];
+const state={today:null,future:null};
+const verts={A:{x:300,y:45},B:{x:65,y:455},C:{x:535,y:455}};
+function barycentric(px,py){const{A,B,C}=verts;const den=((B.y-C.y)*(A.x-C.x)+(C.x-B.x)*(A.y-C.y));let a=((B.y-C.y)*(px-C.x)+(C.x-B.x)*(py-C.y))/den;let b=((C.y-A.y)*(px-C.x)+(A.x-C.x)*(py-C.y))/den;return[a,b,1-a-b]}
+function inside(w){return w.every(x=>x>=-.002&&x<=1.002)}
+function pct(w){let raw=w.map(x=>Math.max(0,x)*100),rounded=raw.map(Math.round);let diff=100-rounded.reduce((a,b)=>a+b,0);rounded[raw.indexOf(Math.max(...raw))]+=diff;return rounded}
+function makePlot(id,key,onSelect){const host=document.getElementById(id);host.innerHTML=`<svg viewBox="0 0 600 525" role="img" aria-label="Ternary plot">
+<line class="guide" x1="182.5" y1="250" x2="417.5" y2="250"/><line class="guide" x1="123.75" y1="352.5" x2="358.75" y2="147.5"/><line class="guide" x1="476.25" y1="352.5" x2="241.25" y2="147.5"/>
+<polygon class="triangle" points="300,45 65,455 535,455"/>
+<text class="label" x="300" y="22" text-anchor="middle">${V[0]}</text><text class="label" x="54" y="492" text-anchor="start">${V[1]}</text><text class="label" x="546" y="492" text-anchor="end">${V[2]}</text>
+<circle class="dot" cx="300" cy="250" r="10" style="display:none"/></svg>
+<div class="hint">Click anywhere inside the triangle</div><div class="values"><div class="pill"><span class="legend-dot"></span>${V[0]}<b class="pa">–</b></div><div class="pill"><span class="legend-dot"></span>${V[1]}<b class="pb">–</b></div><div class="pill"><span class="legend-dot"></span>${V[2]}<b class="pc">–</b></div></div>`;
+const svg=host.querySelector('svg'),dot=host.querySelector('.dot');svg.addEventListener('click',e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());const w=barycentric(p.x,p.y);if(!inside(w))return;const vals=pct(w);state[key]=vals;dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);dot.style.display='block';dot.setAttribute('r','13');setTimeout(()=>dot.setAttribute('r','10'),120);host.querySelector('.pa').textContent=vals[0]+'%';host.querySelector('.pb').textContent=vals[1]+'%';host.querySelector('.pc').textContent=vals[2]+'%';onSelect();})}
+makePlot('today','today',()=>document.getElementById('continue').disabled=false);
+makePlot('future','future',()=>document.getElementById('submit').disabled=false);
+document.getElementById('progress').style.width='50%';
+document.getElementById('continue').addEventListener('click',()=>{
+  document.getElementById('pageToday').classList.add('hidden');
+  const future=document.getElementById('pageFuture');future.classList.remove('hidden');future.classList.add('fade-in');
+  document.getElementById('stepLabel').textContent='Step 2 of 2';
+  document.getElementById('heroTitle').textContent='Now imagine the year 2060.';
+  document.getElementById('heroText').innerHTML='Read the future scenario below. Then answer the same question again using <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>.';
+  document.getElementById('progress').style.width='100%';window.scrollTo({top:0,behavior:'smooth'});
+});
+const SUPABASE_URL='https://bepruljjnztxpeufxigy.supabase.co';
+const SUPABASE_KEY='sb_publishable_JyPnq-0TjfVPXX-tfW1Gbw_z4OLNbxW';
+const RESPONDENT_KEY='digitalSocietyRespondentId';
+const SUBMITTED_KEY='digitalSocietySubmitted';
+function respondentId(){let id=localStorage.getItem(RESPONDENT_KEY);if(!id){id=crypto.randomUUID();localStorage.setItem(RESPONDENT_KEY,id)}return id}
+if(localStorage.getItem(SUBMITTED_KEY)==='true'){
+  const btn=document.getElementById('submit');btn.disabled=true;btn.textContent='Response already submitted';
+}
+document.getElementById('submit').addEventListener('click',async()=>{
+  const btn=document.getElementById('submit');
+  if(!state.today||!state.future||localStorage.getItem(SUBMITTED_KEY)==='true')return;
+  btn.disabled=true;btn.textContent='Submitting...';
+  const payload={respondent_id:respondentId(),today_a:state.today[0],today_b:state.today[1],today_c:state.today[2],future_a:state.future[0],future_b:state.future[1],future_c:state.future[2]};
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/survey_responses`,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error(await res.text());
+    localStorage.setItem(SUBMITTED_KEY,'true');
+    document.getElementById('success').style.display='block';
+    btn.textContent='Response submitted';
+  }catch(err){
+    console.error(err);btn.disabled=false;btn.textContent='Submit response';
+    alert('Your response could not be submitted. Please check your connection and try again.');
+  }
 });
 </script>
+</body>
+</html>
