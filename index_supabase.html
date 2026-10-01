@@ -2,360 +2,623 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Changing Values | Society 2060</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
 
-:root{
-  --ink:#16332d;
-  --muted:#65756f;
-  --paper:#f5f2e9;
-  --card:rgba(255,255,255,.82);
-  --line:#d9dfd9;
-  --green:#1e6a57;
-  --green2:#6e9f78;
-  --sand:#d9b86c;
-  --soft:#e8efe9;
-  font-family:'DM Sans',Arial,sans-serif;
-  color:var(--ink);
-  background:var(--paper);
+:root {
+    --ink: #16332d;
+    --muted: #65756f;
+    --paper: #f5f2e9;
+    --card: rgba(255,255,255,.82);
+    --green: #1e6a57;
+    --green2: #6e9f78;
+    --soft: #e8efe9;
+
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(110,159,120,.22),transparent 31%),
-    radial-gradient(circle at 95% 20%,rgba(217,184,108,.18),transparent 28%),
-    linear-gradient(180deg,#f8f6ef 0%,#f1f4ed 100%);
-  padding:0 18px 52px;
+* {
+    box-sizing: border-box;
 }
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.26;
-  background-image:radial-gradient(#31594f 0.55px,transparent .55px);
-  background-size:18px 18px;
-  mask-image:linear-gradient(to bottom,black,transparent 55%);
+html {
+    scroll-behavior: smooth;
 }
 
-.wrap{
-  max-width:1040px;
-  margin:auto;
-  position:relative;
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 0%, rgba(110,159,120,.22), transparent 31%),
+        radial-gradient(circle at 95% 20%, rgba(217,184,108,.18), transparent 28%),
+        linear-gradient(180deg,#f8f6ef 0%,#f1f4ed 100%);
+
+    padding: 0 18px 52px;
 }
 
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:24px 4px 16px;
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .26;
+
+    background-image:
+        radial-gradient(#31594f 0.55px, transparent .55px);
+
+    background-size: 18px 18px;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-family:Manrope,sans-serif;
-  font-weight:800;
+.wrap {
+    max-width: 1040px;
+    margin: auto;
+    position: relative;
 }
 
-.brandmark{
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:var(--ink);
-  display:grid;
-  place-items:center;
-  color:white;
+/* TOP BAR */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 4px 16px;
 }
 
-.brandmark svg{width:22px}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
 
-.step{
-  font-size:.8rem;
-  font-weight:700;
-  text-transform:uppercase;
-  color:var(--green);
-  background:rgba(255,255,255,.6);
-  padding:8px 12px;
-  border-radius:999px;
+    font-family: Manrope, sans-serif;
+    font-weight: 800;
 }
 
-.hero{
-  position:relative;
-  overflow:hidden;
-  border-radius:30px;
-  padding:54px 54px 48px;
-  margin-bottom:24px;
-  background:linear-gradient(135deg,#173b32,#245f4f 70%,#477b60);
-  color:white;
-  box-shadow:0 24px 70px rgba(28,63,53,.18);
+.brandmark {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px;
+
+    background: var(--ink);
+    color: white;
+
+    display: grid;
+    place-items: center;
+
+    box-shadow: 0 8px 22px rgba(22,51,45,.16);
 }
 
-.eyebrow{
-  font-size:.78rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.11em;
-  color:#d7e9de;
-  margin-bottom:17px;
+.brandmark svg {
+    width: 22px;
 }
 
-.hero h1{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(2.35rem,6vw,4.5rem);
-  line-height:.98;
-  margin:0 0 20px;
-  max-width:760px;
+.step {
+    font-size: .8rem;
+    font-weight: 700;
+
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: var(--green);
+
+    background: rgba(255,255,255,.6);
+
+    border: 1px solid rgba(30,106,87,.12);
+
+    padding: 8px 12px;
+
+    border-radius: 999px;
 }
 
-.hero p{
-  font-size:1.08rem;
-  line-height:1.65;
-  color:#dce9e4;
-  max-width:690px;
-  margin:0;
+/* HERO */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    padding: 54px 54px 48px;
+
+    margin-bottom: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #173b32,
+            #245f4f 70%,
+            #477b60
+        );
+
+    color: white;
+
+    box-shadow:
+        0 24px 70px rgba(28,63,53,.18);
 }
 
-.hero strong{color:white}
+.eyebrow {
+    font-size: .78rem;
+    font-weight: 700;
 
-.meta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:27px;
+    text-transform: uppercase;
+
+    letter-spacing: .11em;
+
+    color: #d7e9de;
+
+    margin-bottom: 17px;
 }
 
-.meta span{
-  font-size:.82rem;
-  background:rgba(255,255,255,.08);
-  padding:8px 11px;
-  border-radius:999px;
+.hero h1 {
+    font-family: Manrope, sans-serif;
+
+    font-size:
+        clamp(2.35rem,6vw,4.5rem);
+
+    line-height: .98;
+
+    letter-spacing: -.055em;
+
+    margin: 0 0 20px;
+
+    max-width: 760px;
 }
 
-.card{
-  background:var(--card);
-  border:1px solid rgba(38,76,66,.11);
-  border-radius:26px;
-  padding:30px;
-  box-shadow:0 14px 38px rgba(37,64,55,.075);
+.hero p {
+    font-size: 1.08rem;
+
+    line-height: 1.65;
+
+    color: #dce9e4;
+
+    max-width: 690px;
+
+    margin: 0;
 }
 
-.card-head{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:flex-start;
+.hero strong {
+    color: white;
 }
 
-.number{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--soft);
-  color:var(--green);
-  font-weight:800;
+.meta {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 27px;
 }
 
-.plot-title{
-  font-family:Manrope,sans-serif;
-  font-size:1.4rem;
-  font-weight:800;
-  margin:0;
+.meta span {
+    font-size: .82rem;
+
+    border:
+        1px solid rgba(255,255,255,.16);
+
+    background:
+        rgba(255,255,255,.08);
+
+    padding: 8px 11px;
+
+    border-radius: 999px;
+
+    color: #eff7f3;
 }
 
-.subtitle{
-  font-size:.91rem;
-  color:var(--muted);
-  margin-top:4px;
+/* PROGRESS */
+
+.progress {
+    height: 5px;
+
+    background: #e4e8e2;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    margin-bottom: 22px;
 }
 
-.plot-wrap{
-  max-width:540px;
-  margin:13px auto 0;
+.progress span {
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            #8cab75
+        );
+
+    transition: width .35s ease;
 }
 
-svg{
-  width:100%;
-  height:auto;
-  display:block;
-  overflow:visible;
-  cursor:crosshair;
+/* CARDS */
+
+.survey-page {
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.triangle{
-  fill:rgba(248,250,246,.8);
-  stroke:#31594f;
-  stroke-width:2.4;
+.card {
+    background: var(--card);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid rgba(38,76,66,.11);
+
+    border-radius: 26px;
+
+    padding: 34px;
+
+    box-shadow:
+        0 14px 38px rgba(37,64,55,.075);
 }
 
-.guide{
-  stroke:#cfd9d2;
-  stroke-width:1;
-  stroke-dasharray:4 5;
+.card-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: flex-start;
 }
 
-.dot{
-  fill:#16332d;
-  stroke:#fff;
-  stroke-width:4;
+.number {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--soft);
+
+    color: var(--green);
+
+    font-family: Manrope, sans-serif;
+
+    font-weight: 800;
+
+    font-size: .86rem;
+
+    flex: none;
 }
 
-.label{
-  font-size:16px;
-  font-weight:700;
-  fill:#25473e;
+.plot-title {
+    font-family: Manrope, sans-serif;
+
+    font-size: 1.4rem;
+
+    font-weight: 800;
+
+    letter-spacing: -.025em;
+
+    margin: 0;
 }
 
-.hint{
-  text-align:center;
-  font-size:.86rem;
-  color:#71817b;
+.subtitle {
+    font-size: .91rem;
+
+    color: var(--muted);
+
+    margin-top: 4px;
+
+    line-height: 1.45;
 }
 
-.values{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:16px;
+/* TERNARY PLOT */
+
+.plot-wrap {
+    max-width: 540px;
+
+    margin: 13px auto 0;
 }
 
-.pill{
-  background:#f3f6f1;
-  border:1px solid #e1e8e1;
-  border-radius:13px;
-  padding:10px 8px;
-  text-align:center;
-  font-size:.78rem;
-  color:#6c7c76;
+svg {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    overflow: visible;
+
+    cursor: crosshair;
 }
 
-.pill b{
-  display:block;
-  color:var(--ink);
-  font-size:1.02rem;
+.triangle {
+    fill: rgba(248,250,246,.8);
+
+    stroke: #31594f;
+
+    stroke-width: 2.4;
 }
 
-.legend-dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  margin-right:5px;
-  background:var(--green2);
+.guide {
+    stroke: #cfd9d2;
+
+    stroke-width: 1;
+
+    stroke-dasharray: 4 5;
 }
 
-.submit{
-  border:0;
-  border-radius:15px;
-  padding:15px 28px;
-  font-family:Manrope,sans-serif;
-  font-size:.98rem;
-  font-weight:800;
-  background:var(--ink);
-  color:white;
-  cursor:pointer;
+.dot {
+    fill: #16332d;
+
+    stroke: white;
+
+    stroke-width: 4;
+
+    filter:
+        drop-shadow(
+            0 4px 5px rgba(22,51,45,.25)
+        );
 }
 
-.submit:disabled{
-  opacity:.28;
-  cursor:not-allowed;
+.label {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    fill: #25473e;
 }
 
-.success{
-  display:none;
-  margin:16px auto 0;
-  padding:12px 16px;
-  border-radius:13px;
-  max-width:520px;
-  background:#e8f3ea;
-  color:#23573f;
-  font-weight:700;
+.hint {
+    text-align: center;
+
+    font-size: .86rem;
+
+    color: #71817b;
+
+    margin-top: -3px;
 }
 
-.footer{
-  text-align:center;
-  color:#87938f;
-  font-size:.76rem;
-  margin-top:22px;
+.values {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+
+    margin-top: 16px;
 }
 
-.progress{
-  height:5px;
-  background:#e4e8e2;
-  border-radius:999px;
-  overflow:hidden;
-  margin-bottom:22px;
+.pill {
+    background: #f3f6f1;
+
+    border:
+        1px solid #e1e8e1;
+
+    border-radius: 13px;
+
+    padding: 10px 8px;
+
+    text-align: center;
+
+    font-size: .78rem;
+
+    color: #6c7c76;
 }
 
-.progress span{
-  display:block;
-  width:0;
-  height:100%;
-  background:linear-gradient(90deg,var(--green),#8cab75);
-  transition:width .35s ease;
+.pill b {
+    display: block;
+
+    color: var(--ink);
+
+    font-size: 1.02rem;
+
+    margin-top: 2px;
 }
 
-.survey-page{
-  max-width:720px;
-  margin:0 auto;
+/* BUTTONS */
+
+.page-action {
+    text-align: center;
+
+    margin-top: 24px;
 }
 
-.hidden{display:none}
+.submit {
+    border: 0;
 
-.page-action{
-  text-align:center;
-  margin-top:24px;
+    border-radius: 15px;
+
+    padding: 15px 28px;
+
+    font-family: Manrope, sans-serif;
+
+    font-size: .98rem;
+
+    font-weight: 800;
+
+    background: var(--ink);
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 22px rgba(22,51,45,.18);
+
+    transition:
+        transform .18s,
+        box-shadow .18s,
+        opacity .18s;
 }
 
-.scenario-card{
-  margin:0 0 22px;
-  background:linear-gradient(135deg,#e7efe8,#f7f3e8);
-  border-radius:26px;
-  padding:30px;
+.submit:not(:disabled):hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(22,51,45,.23);
 }
 
-.scenario-card h2{
-  font-family:Manrope,sans-serif;
-  font-size:1.65rem;
-  margin:0 0 13px;
+.submit:disabled {
+    opacity: .28;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
 }
 
-.scenario-card p{
-  color:#566963;
-  line-height:1.65;
+/* FUTURE SCENARIO */
+
+.scenario-card {
+    margin: 0 0 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7efe8,
+            #f7f3e8
+        );
+
+    border:
+        1px solid rgba(38,76,66,.12);
+
+    border-radius: 26px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 14px 38px rgba(37,64,55,.07);
 }
 
-.eyebrow.dark{color:var(--green)}
+.scenario-card h2 {
+    font-family: Manrope, sans-serif;
 
-.fade-in{
-  animation:fadeIn .42s ease both;
+    font-size: 1.65rem;
+
+    letter-spacing: -.03em;
+
+    margin: 0 0 13px;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:none}
+.scenario-card p {
+    color: #566963;
+
+    line-height: 1.65;
+
+    margin: 8px 0;
 }
 
-@media(max-width:520px){
-  body{padding:0 12px 36px}
-  .hero{padding:35px 23px}
-  .hero h1{font-size:2.55rem}
-  .step{display:none}
-  .card{padding:20px 15px}
+.eyebrow.dark {
+    color: var(--green);
 }
+
+/* SUCCESS */
+
+.success {
+    display: none;
+
+    margin: 16px auto 0;
+
+    padding: 12px 16px;
+
+    border-radius: 13px;
+
+    max-width: 520px;
+
+    background: #e8f3ea;
+
+    color: #23573f;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation:
+        fadeIn .42s ease both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.footer {
+    text-align: center;
+
+    color: #87938f;
+
+    font-size: .76rem;
+
+    margin-top: 22px;
+}
+
+/* MOBILE */
+
+@media(max-width:520px) {
+
+    body {
+        padding:
+            0 12px 36px;
+    }
+
+    .hero {
+        border-radius: 24px;
+
+        padding:
+            35px 23px;
+    }
+
+    .hero h1 {
+        font-size: 2.55rem;
+    }
+
+    .step {
+        display: none;
+    }
+
+    .card {
+        border-radius: 22px;
+
+        padding:
+            22px 15px;
+    }
+
+    .scenario-card {
+        padding: 23px;
+
+        border-radius: 22px;
+    }
+
+    .label {
+        font-size: 14px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -363,627 +626,1036 @@ svg{
 
 <div class="wrap">
 
-<div class="topbar">
+    <div class="topbar">
 
-<div class="brand">
+        <div class="brand">
 
-<span class="brandmark">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-<path d="M12 21V10"/>
-<path d="M12 13C8 13 5 10 5 6c4 0 7 3 7 7Z"/>
-<path d="M12 10c0-4 3-7 7-7 0 4-3 7-7 7Z"/>
-</svg>
-</span>
+            <span class="brandmark">
 
-Society 2060
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
+
+                    <path d="M12 21V10"/>
+
+                    <path
+                        d="M12 13C8 13 5 10 5 6c4 0 7 3 7 7Z"
+                    />
+
+                    <path
+                        d="M12 10c0-4 3-7 7-7 0 4-3 7-7 7Z"
+                    />
+
+                </svg>
+
+            </span>
+
+            Society 2060
+
+        </div>
+
+        <div
+            class="step"
+            id="stepLabel"
+        >
+            Step 1 of 2
+        </div>
+
+    </div>
+
+
+    <section class="hero">
+
+        <div class="eyebrow">
+            Digital Society Research
+        </div>
+
+        <h1 id="heroTitle">
+            What does society value today?
+        </h1>
+
+        <p id="heroText">
+
+            This short survey explores how society's priorities
+            may change between
+            <strong>today</strong>
+            and
+            <strong>2060</strong>.
+
+            First, show how you think society currently balances
+            <strong>Value A</strong>,
+            <strong>Value B</strong>
+            and
+            <strong>Value C</strong>.
+
+            You will then see a future scenario and answer
+            the same question again.
+
+        </p>
+
+        <div class="meta">
+
+            <span>2 questions</span>
+
+            <span>About 30 seconds</span>
+
+            <span>Anonymous response</span>
+
+        </div>
+
+    </section>
+
+
+    <div class="progress">
+
+        <span id="progress"></span>
+
+    </div>
+
+
+    <main>
+
+
+        <!-- TODAY -->
+
+
+        <section
+            class="card survey-page"
+            id="pageToday"
+        >
+
+            <div class="card-head">
+
+                <div>
+
+                    <h2 class="plot-title">
+                        Society Today
+                    </h2>
+
+                    <div class="subtitle">
+
+                        Where do you think society places
+                        its priorities now?
+
+                    </div>
+
+                </div>
+
+                <div class="number">
+                    01
+                </div>
+
+            </div>
+
+
+            <div
+                class="plot-wrap"
+                id="today"
+            ></div>
+
+
+            <div class="page-action">
+
+                <button
+                    id="continue"
+                    class="submit"
+                    disabled
+                >
+
+                    Continue to 2060
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 2060 -->
+
+
+        <section
+            class="survey-page hidden"
+            id="pageFuture"
+        >
+
+
+            <section class="scenario-card">
+
+                <div class="eyebrow dark">
+                    Your 2060 scenario
+                </div>
+
+                <h2>
+                    Imagine society in 2060
+                </h2>
+
+                <p>
+
+                    By <strong>2030</strong>,
+                    increasingly frequent extreme weather makes
+                    repeated infrastructure repairs too costly.
+
+                    From <strong>2040</strong>,
+                    governments begin redesigning cities around
+                    climate adaptation instead.
+
+                </p>
+
+                <p>
+
+                    By <strong>2060</strong>,
+                    cities are engineered for
+                    <strong>climate survival</strong>,
+                    with
+                    <strong>natural cooling</strong>,
+                    <strong>rooftop farms</strong>,
+                    <strong>green pedestrian corridors</strong>
+                    and
+                    <strong>sea walls</strong>.
+
+                    Communities in highly vulnerable areas may be
+                    <strong>relocated</strong>.
+
+                </p>
+
+            </section>
+
+
+            <section class="card">
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h2 class="plot-title">
+                            Society in 2060
+                        </h2>
+
+                        <div class="subtitle">
+
+                            In this future scenario,
+                            where do you think society would
+                            place its priorities?
+
+                        </div>
+
+                    </div>
+
+                    <div class="number">
+                        02
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="plot-wrap"
+                    id="future"
+                ></div>
+
+
+                <div class="page-action">
+
+                    <button
+                        id="submit"
+                        class="submit"
+                        disabled
+                    >
+
+                        Submit response
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="success"
+                    class="success"
+                >
+
+                    Thank you. Your response has been recorded.
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <div class="footer">
+
+        MIS20070 | Digital Society | Values Research
+
+    </div>
 
 </div>
 
-<div class="step" id="stepLabel">Step 1 of 2</div>
-
-</div>
-
-
-<section class="hero">
-
-<div class="eyebrow">Digital Society Research</div>
-
-<h1 id="heroTitle">
-What does society value today?
-</h1>
-
-<p id="heroText">
-This short survey explores how society’s priorities may change between
-<strong>today</strong> and <strong>2060</strong>.
-First, show how you think society currently balances
-<strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>.
-You will then see a future scenario and answer the same question again.
-</p>
-
-<div class="meta">
-<span>2 questions</span>
-<span>≈ 30 seconds</span>
-<span>Anonymous response</span>
-</div>
-
-</section>
-
-
-<div class="progress">
-<span id="progress"></span>
-</div>
-
-
-<main>
-
-<section class="card survey-page" id="pageToday">
-
-<div class="card-head">
-
-<div>
-<h2 class="plot-title">Society Today</h2>
-<div class="subtitle">
-Where do you think society places its priorities now?
-</div>
-</div>
-
-<div class="number">01</div>
-
-</div>
-
-<div class="plot-wrap" id="today"></div>
-
-<div class="page-action">
-<button id="continue" class="submit" disabled>
-Continue to 2060
-</button>
-</div>
-
-</section>
-
-
-<section class="survey-page hidden" id="pageFuture">
-
-<section class="scenario-card">
-
-<div class="eyebrow dark">Your 2060 scenario</div>
-
-<h2>Imagine society in 2060</h2>
-
-<p>
-By <strong>2030</strong>, increasingly frequent extreme weather makes repeated
-infrastructure repairs too costly. From <strong>2040</strong>, governments begin
-redesigning cities around climate adaptation instead.
-</p>
-
-<p>
-By <strong>2060</strong>, cities are engineered for
-<strong>climate survival</strong>, with <strong>natural cooling</strong>,
-<strong>rooftop farms</strong>, <strong>green pedestrian corridors</strong>
-and <strong>sea walls</strong>. Communities in highly vulnerable areas may be
-<strong>relocated</strong>.
-</p>
-
-</section>
-
-
-<section class="card">
-
-<div class="card-head">
-
-<div>
-<h2 class="plot-title">Society in 2060</h2>
-<div class="subtitle">
-In this future scenario, where do you think society would place its priorities?
-</div>
-</div>
-
-<div class="number">02</div>
-
-</div>
-
-<div class="plot-wrap" id="future"></div>
-
-<div class="page-action">
-<button id="submit" class="submit" disabled>
-Submit response
-</button>
-</div>
-
-<div id="success" class="success">
-✓ Thank you. Your response has been recorded.
-</div>
-
-</section>
-
-</section>
-
-</main>
-
-<div class="footer">
-MIS20070 · Digital Society · Values Research
-</div>
-
-</div>
 
 
 <script>
 
-const V=['Value A','Value B','Value C'];
+/* ============================
+   VALUES
+============================ */
 
-const state={
-  today:null,
-  future:null
+const VALUES = [
+    'Value A',
+    'Value B',
+    'Value C'
+];
+
+
+/* ============================
+   STATE
+============================ */
+
+const state = {
+    today: null,
+    future: null
 };
 
-const verts={
-  A:{x:300,y:45},
-  B:{x:65,y:455},
-  C:{x:535,y:455}
+
+/* ============================
+   TRIANGLE
+============================ */
+
+const vertices = {
+
+    A: {
+        x: 300,
+        y: 45
+    },
+
+    B: {
+        x: 65,
+        y: 455
+    },
+
+    C: {
+        x: 535,
+        y: 455
+    }
+
 };
 
 
-function barycentric(px,py){
+function barycentric(px, py) {
 
-  const {A,B,C}=verts;
+    const A = vertices.A;
+    const B = vertices.B;
+    const C = vertices.C;
 
-  const den=
-  ((B.y-C.y)*(A.x-C.x)+(C.x-B.x)*(A.y-C.y));
-
-  let a=
-  ((B.y-C.y)*(px-C.x)+(C.x-B.x)*(py-C.y))/den;
-
-  let b=
-  ((C.y-A.y)*(px-C.x)+(A.x-C.x)*(py-C.y))/den;
-
-  return [a,b,1-a-b];
-
-}
+    const denominator =
+        ((B.y - C.y) * (A.x - C.x)) +
+        ((C.x - B.x) * (A.y - C.y));
 
 
-function inside(w){
-  return w.every(x=>x>=-.002&&x<=1.002);
-}
+    const a =
+        (
+            ((B.y - C.y) * (px - C.x)) +
+            ((C.x - B.x) * (py - C.y))
+        ) / denominator;
 
 
-function pct(w){
+    const b =
+        (
+            ((C.y - A.y) * (px - C.x)) +
+            ((A.x - C.x) * (py - C.y))
+        ) / denominator;
 
-  let raw=w.map(x=>Math.max(0,x)*100);
 
-  let rounded=raw.map(Math.round);
+    const c =
+        1 - a - b;
 
-  let diff=
-  100-rounded.reduce((a,b)=>a+b,0);
 
-  rounded[
-    raw.indexOf(Math.max(...raw))
-  ]+=diff;
-
-  return rounded;
+    return [a, b, c];
 
 }
 
 
-function makePlot(id,key,onSelect){
+function insideTriangle(values) {
 
-const host=document.getElementById(id);
+    return values.every(
+        value =>
+            value >= -0.002 &&
+            value <= 1.002
+    );
 
-host.innerHTML=`
-
-<svg viewBox="0 0 600 525">
-
-<line class="guide"
-x1="182.5" y1="250"
-x2="417.5" y2="250"/>
-
-<line class="guide"
-x1="123.75" y1="352.5"
-x2="358.75" y2="147.5"/>
-
-<line class="guide"
-x1="476.25" y1="352.5"
-x2="241.25" y2="147.5"/>
-
-<polygon
-class="triangle"
-points="300,45 65,455 535,455"/>
-
-<text class="label"
-x="300" y="22"
-text-anchor="middle">
-${V[0]}
-</text>
-
-<text class="label"
-x="54" y="492">
-${V[1]}
-</text>
-
-<text class="label"
-x="546" y="492"
-text-anchor="end">
-${V[2]}
-</text>
-
-<circle
-class="dot"
-cx="300"
-cy="250"
-r="10"
-style="display:none"/>
-
-</svg>
-
-<div class="hint">
-Click anywhere inside the triangle
-</div>
-
-<div class="values">
-
-<div class="pill">
-${V[0]}
-<b class="pa">–</b>
-</div>
-
-<div class="pill">
-${V[1]}
-<b class="pb">–</b>
-</div>
-
-<div class="pill">
-${V[2]}
-<b class="pc">–</b>
-</div>
-
-</div>
-
-`;
-
-const svg=host.querySelector('svg');
-
-const dot=host.querySelector('.dot');
+}
 
 
-svg.addEventListener('click',e=>{
+function percentages(values) {
 
-const pt=svg.createSVGPoint();
+    const raw =
+        values.map(
+            value =>
+                Math.max(0, value) * 100
+        );
 
-pt.x=e.clientX;
-pt.y=e.clientY;
 
-const p=
-pt.matrixTransform(
-svg.getScreenCTM().inverse()
+    const rounded =
+        raw.map(
+            value =>
+                Math.round(value)
+        );
+
+
+    const total =
+        rounded.reduce(
+            (a, b) =>
+                a + b,
+            0
+        );
+
+
+    const difference =
+        100 - total;
+
+
+    const largestIndex =
+        raw.indexOf(
+            Math.max(...raw)
+        );
+
+
+    rounded[largestIndex] += difference;
+
+
+    return rounded;
+
+}
+
+
+
+/* ============================
+   CREATE PLOT
+============================ */
+
+function makePlot(
+    containerId,
+    stateKey,
+    onSelect
+) {
+
+    const host =
+        document.getElementById(
+            containerId
+        );
+
+
+    host.innerHTML = `
+
+        <svg
+            viewBox="0 0 600 525"
+            role="img"
+            aria-label="Ternary plot"
+        >
+
+            <line
+                class="guide"
+                x1="182.5"
+                y1="250"
+                x2="417.5"
+                y2="250"
+            />
+
+            <line
+                class="guide"
+                x1="123.75"
+                y1="352.5"
+                x2="358.75"
+                y2="147.5"
+            />
+
+            <line
+                class="guide"
+                x1="476.25"
+                y1="352.5"
+                x2="241.25"
+                y2="147.5"
+            />
+
+
+            <polygon
+                class="triangle"
+                points="
+                    300,45
+                    65,455
+                    535,455
+                "
+            />
+
+
+            <text
+                class="label"
+                x="300"
+                y="22"
+                text-anchor="middle"
+            >
+                ${VALUES[0]}
+            </text>
+
+
+            <text
+                class="label"
+                x="54"
+                y="492"
+                text-anchor="start"
+            >
+                ${VALUES[1]}
+            </text>
+
+
+            <text
+                class="label"
+                x="546"
+                y="492"
+                text-anchor="end"
+            >
+                ${VALUES[2]}
+            </text>
+
+
+            <circle
+                class="dot"
+                cx="300"
+                cy="250"
+                r="10"
+                style="display:none"
+            />
+
+        </svg>
+
+
+        <div class="hint">
+
+            Click anywhere inside the triangle
+
+        </div>
+
+
+        <div class="values">
+
+            <div class="pill">
+
+                ${VALUES[0]}
+
+                <b class="value-a">
+                    -
+                </b>
+
+            </div>
+
+
+            <div class="pill">
+
+                ${VALUES[1]}
+
+                <b class="value-b">
+                    -
+                </b>
+
+            </div>
+
+
+            <div class="pill">
+
+                ${VALUES[2]}
+
+                <b class="value-c">
+                    -
+                </b>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const svg =
+        host.querySelector('svg');
+
+
+    const dot =
+        host.querySelector('.dot');
+
+
+    svg.addEventListener(
+        'click',
+        function(event) {
+
+            const point =
+                svg.createSVGPoint();
+
+
+            point.x =
+                event.clientX;
+
+            point.y =
+                event.clientY;
+
+
+            const transformed =
+                point.matrixTransform(
+                    svg
+                        .getScreenCTM()
+                        .inverse()
+                );
+
+
+            const weights =
+                barycentric(
+                    transformed.x,
+                    transformed.y
+                );
+
+
+            if (
+                !insideTriangle(weights)
+            ) {
+                return;
+            }
+
+
+            const values =
+                percentages(weights);
+
+
+            state[stateKey] =
+                values;
+
+
+            dot.setAttribute(
+                'cx',
+                transformed.x
+            );
+
+
+            dot.setAttribute(
+                'cy',
+                transformed.y
+            );
+
+
+            dot.style.display =
+                'block';
+
+
+            host
+                .querySelector(
+                    '.value-a'
+                )
+                .textContent =
+                    values[0] + '%';
+
+
+            host
+                .querySelector(
+                    '.value-b'
+                )
+                .textContent =
+                    values[1] + '%';
+
+
+            host
+                .querySelector(
+                    '.value-c'
+                )
+                .textContent =
+                    values[2] + '%';
+
+
+            onSelect();
+
+        }
+    );
+
+}
+
+
+
+/* ============================
+   INITIALISE PLOTS
+============================ */
+
+makePlot(
+    'today',
+    'today',
+    function() {
+
+        document
+            .getElementById(
+                'continue'
+            )
+            .disabled =
+                false;
+
+    }
 );
-
-const w=
-barycentric(p.x,p.y);
-
-if(!inside(w))return;
-
-const vals=pct(w);
-
-state[key]=vals;
-
-dot.setAttribute('cx',p.x);
-dot.setAttribute('cy',p.y);
-
-dot.style.display='block';
-
-host.querySelector('.pa').textContent=
-vals[0]+'%';
-
-host.querySelector('.pb').textContent=
-vals[1]+'%';
-
-host.querySelector('.pc').textContent=
-vals[2]+'%';
-
-onSelect();
-
-});
-
-}
 
 
 makePlot(
-'today',
-'today',
-()=>document.getElementById('continue').disabled=false
+    'future',
+    'future',
+    function() {
+
+        document
+            .getElementById(
+                'submit'
+            )
+            .disabled =
+                false;
+
+    }
 );
 
 
-makePlot(
-'future',
-'future',
-()=>document.getElementById('submit').disabled=false
-);
 
-
-document.getElementById('progress').style.width='50%';
-
-
-document.getElementById('continue')
-.addEventListener('click',()=>{
+/* ============================
+   PAGE 1
+============================ */
 
 document
-.getElementById('pageToday')
-.classList.add('hidden');
-
-const future=
-document.getElementById('pageFuture');
-
-future.classList.remove('hidden');
-
-future.classList.add('fade-in');
-
-document.getElementById('stepLabel')
-.textContent='Step 2 of 2';
-
-document.getElementById('heroTitle')
-.textContent='Now imagine the year 2060.';
-
-document.getElementById('heroText')
-.innerHTML=
-'Read the future scenario below. Then answer the same question again using <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>.';
-
-document.getElementById('progress')
-.style.width='100%';
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
-
-});
+    .getElementById(
+        'progress'
+    )
+    .style.width =
+        '50%';
 
 
+
+/* ============================
+   CONTINUE TO 2060
+============================ */
+
+document
+    .getElementById(
+        'continue'
+    )
+    .addEventListener(
+        'click',
+        function() {
+
+
+            document
+                .getElementById(
+                    'pageToday'
+                )
+                .classList
+                .add(
+                    'hidden'
+                );
+
+
+            const futurePage =
+                document
+                    .getElementById(
+                        'pageFuture'
+                    );
+
+
+            futurePage
+                .classList
+                .remove(
+                    'hidden'
+                );
+
+
+            futurePage
+                .classList
+                .add(
+                    'fade-in'
+                );
+
+
+            document
+                .getElementById(
+                    'stepLabel'
+                )
+                .textContent =
+                    'Step 2 of 2';
+
+
+            document
+                .getElementById(
+                    'heroTitle'
+                )
+                .textContent =
+                    'Now imagine the year 2060.';
+
+
+            document
+                .getElementById(
+                    'heroText'
+                )
+                .innerHTML =
+                    'Read the future scenario below. Then answer the same question again using <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>.';
+
+
+            document
+                .getElementById(
+                    'progress'
+                )
+                .style.width =
+                    '100%';
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+    );
+
+
+
+/* ============================
+   SUPABASE
+============================ */
 
 const SUPABASE_URL =
-'https://bepruljjnztxpeufxigy.supabase.co';
+    'https://bepruljjnztxpeufxigy.supabase.co';
+
 
 const SUPABASE_KEY =
-'sb_publishable_JyPnq-0TjfVPXX-tfW1Gbw_z4OLNbxW';
+    'sb_publishable_JyPnq-0TjfVPXX-tfW1Gbw_z4OLNbxW';
 
+
+
+/* ============================
+   RESPONDENT ID
+============================ */
 
 const RESPONDENT_KEY =
-'digitalSocietyRespondentId';
+    'digitalSocietyRespondentId';
+
 
 const SUBMITTED_KEY =
-'digitalSocietySubmitted';
+    'digitalSocietySubmitted';
 
 
-function respondentId(){
+function getRespondentId() {
 
-let id=
-localStorage.getItem(RESPONDENT_KEY);
-
-if(!id){
-
-id=crypto.randomUUID();
-
-localStorage.setItem(
-RESPONDENT_KEY,
-id
-);
-
-}
-
-return id;
-
-}
+    let id =
+        localStorage.getItem(
+            RESPONDENT_KEY
+        );
 
 
+    if (!id) {
 
-document.getElementById('submit')
-.addEventListener('click',async()=>{
-
-const btn=
-document.getElementById('submit');
-
-if(
-!state.today ||
-!state.future ||
-localStorage.getItem(SUBMITTED_KEY)==='true'
-){
-return;
-}
+        id =
+            crypto.randomUUID();
 
 
-btn.disabled=true;
+        localStorage.setItem(
+            RESPONDENT_KEY,
+            id
+        );
 
-btn.textContent=
-'Submitting...';
-
-
-const payload={
-
-respondent_id:
-respondentId(),
-
-today_a:
-state.today[0],
-
-today_b:
-state.today[1],
-
-today_c:
-state.today[2],
-
-future_a:
-state.future[0],
-
-future_b:
-state.future[1],
-
-future_c:
-state.future[2]
-
-};
+    }
 
 
-try{
-
-const res=
-await fetch(
-
-`${SUPABASE_URL}/rest/v1/survey_responses`,
-
-{
-
-method:'POST',
-
-headers:{
-
-'apikey':
-SUPABASE_KEY,
-
-'Authorization':
-`Bearer ${SUPABASE_KEY}`,
-
-'Content-Type':
-'application/json',
-
-'Prefer':
-'return=minimal'
-
-},
-
-body:
-JSON.stringify(payload)
-
-}
-
-);
-
-
-if(!res.ok){
-
-throw new Error(
-await res.text()
-);
+    return id;
 
 }
 
 
-localStorage.setItem(
-SUBMITTED_KEY,
-'true'
-);
 
+/* ============================
+   SUBMIT
+============================ */
 
 document
-.getElementById('success')
-.style.display='block';
+    .getElementById(
+        'submit'
+    )
+    .addEventListener(
+        'click',
+        async function() {
 
 
-btn.textContent=
-'Response submitted';
+            if (
+                !state.today ||
+                !state.future
+            ) {
+                return;
+            }
 
 
-}catch(err){
+            if (
+                localStorage.getItem(
+                    SUBMITTED_KEY
+                ) === 'true'
+            ) {
 
-console.error(err);
+                alert(
+                    'You have already submitted a response.'
+                );
 
-btn.disabled=false;
+                return;
 
-btn.textContent=
-'Submit response';
+            }
 
-alert(
-'Your response could not be submitted. Please check your connection and try again.'
-);
 
-}
+            const button =
+                document
+                    .getElementById(
+                        'submit'
+                    );
 
-});
+
+            button.disabled =
+                true;
+
+
+            button.textContent =
+                'Submitting...';
+
+
+
+            const responseData = {
+
+                respondent_id:
+                    getRespondentId(),
+
+                today_a:
+                    state.today[0],
+
+                today_b:
+                    state.today[1],
+
+                today_c:
+                    state.today[2],
+
+                future_a:
+                    state.future[0],
+
+                future_b:
+                    state.future[1],
+
+                future_c:
+                    state.future[2]
+
+            };
+
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+
+                        SUPABASE_URL +
+                        '/rest/v1/survey_responses',
+
+                        {
+
+                            method:
+                                'POST',
+
+                            headers: {
+
+                                'apikey':
+                                    SUPABASE_KEY,
+
+                                'Authorization':
+                                    'Bearer ' +
+                                    SUPABASE_KEY,
+
+                                'Content-Type':
+                                    'application/json',
+
+                                'Prefer':
+                                    'return=minimal'
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    responseData
+                                )
+
+                        }
+
+                    );
+
+
+
+                if (
+                    !response.ok
+                ) {
+
+                    const errorText =
+                        await response.text();
+
+
+                    throw new Error(
+                        errorText
+                    );
+
+                }
+
+
+
+                localStorage.setItem(
+                    SUBMITTED_KEY,
+                    'true'
+                );
+
+
+                document
+                    .getElementById(
+                        'success'
+                    )
+                    .style.display =
+                        'block';
+
+
+                button.textContent =
+                    'Response submitted';
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    error
+                );
+
+
+                button.disabled =
+                    false;
+
+
+                button.textContent =
+                    'Submit response';
+
+
+                alert(
+                    'Your response could not be submitted. Please check your connection and try again.'
+                );
+
+            }
+
+        }
+    );
 
 </script>
 
-</body>
-</html>    <p id="heroText">This short survey explores how society’s priorities may change between <strong>today</strong> and <strong>2060</strong>. First, show how you think society currently balances <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>. You will then see a future scenario and answer the same question again.</p>
-    <div class="meta"><span>2 questions</span><span>≈ 30 seconds</span><span>Anonymous response</span></div>
-  </section>
-
-  <div class="progress"><span id="progress"></span></div>
-
-  <main>
-    <section class="card survey-page" id="pageToday">
-      <div class="card-head"><div><h2 class="plot-title">Society Today</h2><div class="subtitle">Where do you think society places its priorities now?</div></div><div class="number">01</div></div>
-      <div class="plot-wrap" id="today"></div>
-      <div class="page-action"><button id="continue" class="submit" disabled>Continue to 2060</button></div>
-    </section>
-
-    <section class="survey-page hidden" id="pageFuture">
-      <section class="scenario-card">
-        <div class="eyebrow dark">Your 2060 scenario</div>
-        <h2>Imagine society in 2060</h2>
-        <p>By <strong>2030</strong>, increasingly frequent extreme weather makes repeated infrastructure repairs too costly. From <strong>2040</strong>, governments begin redesigning cities around climate adaptation instead.</p>
-        <p>By <strong>2060</strong>, cities are engineered for <strong>climate survival</strong>, with <strong>natural cooling</strong>, <strong>rooftop farms</strong>, <strong>green pedestrian corridors</strong> and <strong>sea walls</strong>. Communities in highly vulnerable areas may be <strong>relocated</strong>.</p>
-      </section>
-      <section class="card">
-        <div class="card-head"><div><h2 class="plot-title">Society in 2060</h2><div class="subtitle">In this future scenario, where do you think society would place its priorities?</div></div><div class="number">02</div></div>
-        <div class="plot-wrap" id="future"></div>
-        <div class="page-action"><button id="submit" class="submit" disabled>Submit response</button></div>
-        <div id="success" class="success">✓ Thank you. Your response has been recorded locally for this demo.</div>
-        <div class="note">Demo version · Responses are not yet connected to an online database.</div>
-      </section>
-    </section>
-  </main>
-  <div class="footer">MIS20070 · Digital Society · Values Research</div>
-</div>
-<style>
-.survey-page{max-width:720px;margin:0 auto}.hidden{display:none}.page-action{text-align:center;margin-top:24px}.scenario-card{margin:0 0 22px;background:linear-gradient(135deg,#e7efe8,#f7f3e8);border:1px solid rgba(38,76,66,.12);border-radius:26px;padding:30px;box-shadow:0 14px 38px rgba(37,64,55,.07)}.scenario-card h2{font-family:Manrope,sans-serif;font-size:1.65rem;letter-spacing:-.03em;margin:0 0 13px}.scenario-card p{color:#566963;line-height:1.65;margin:8px 0}.eyebrow.dark{color:var(--green)}.card.survey-page{padding:34px}.fade-in{animation:fadeIn .42s ease both}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@media(max-width:520px){.scenario-card{padding:23px;border-radius:22px}.card.survey-page{padding:22px 15px}}
-</style>
-<script>
-const V=['Value A','Value B','Value C'];
-const state={today:null,future:null};
-const verts={A:{x:300,y:45},B:{x:65,y:455},C:{x:535,y:455}};
-function barycentric(px,py){const{A,B,C}=verts;const den=((B.y-C.y)*(A.x-C.x)+(C.x-B.x)*(A.y-C.y));let a=((B.y-C.y)*(px-C.x)+(C.x-B.x)*(py-C.y))/den;let b=((C.y-A.y)*(px-C.x)+(A.x-C.x)*(py-C.y))/den;return[a,b,1-a-b]}
-function inside(w){return w.every(x=>x>=-.002&&x<=1.002)}
-function pct(w){let raw=w.map(x=>Math.max(0,x)*100),rounded=raw.map(Math.round);let diff=100-rounded.reduce((a,b)=>a+b,0);rounded[raw.indexOf(Math.max(...raw))]+=diff;return rounded}
-function makePlot(id,key,onSelect){const host=document.getElementById(id);host.innerHTML=`<svg viewBox="0 0 600 525" role="img" aria-label="Ternary plot">
-<line class="guide" x1="182.5" y1="250" x2="417.5" y2="250"/><line class="guide" x1="123.75" y1="352.5" x2="358.75" y2="147.5"/><line class="guide" x1="476.25" y1="352.5" x2="241.25" y2="147.5"/>
-<polygon class="triangle" points="300,45 65,455 535,455"/>
-<text class="label" x="300" y="22" text-anchor="middle">${V[0]}</text><text class="label" x="54" y="492" text-anchor="start">${V[1]}</text><text class="label" x="546" y="492" text-anchor="end">${V[2]}</text>
-<circle class="dot" cx="300" cy="250" r="10" style="display:none"/></svg>
-<div class="hint">Click anywhere inside the triangle</div><div class="values"><div class="pill"><span class="legend-dot"></span>${V[0]}<b class="pa">–</b></div><div class="pill"><span class="legend-dot"></span>${V[1]}<b class="pb">–</b></div><div class="pill"><span class="legend-dot"></span>${V[2]}<b class="pc">–</b></div></div>`;
-const svg=host.querySelector('svg'),dot=host.querySelector('.dot');svg.addEventListener('click',e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());const w=barycentric(p.x,p.y);if(!inside(w))return;const vals=pct(w);state[key]=vals;dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);dot.style.display='block';dot.setAttribute('r','13');setTimeout(()=>dot.setAttribute('r','10'),120);host.querySelector('.pa').textContent=vals[0]+'%';host.querySelector('.pb').textContent=vals[1]+'%';host.querySelector('.pc').textContent=vals[2]+'%';onSelect();})}
-makePlot('today','today',()=>document.getElementById('continue').disabled=false);
-makePlot('future','future',()=>document.getElementById('submit').disabled=false);
-document.getElementById('progress').style.width='50%';
-document.getElementById('continue').addEventListener('click',()=>{
-  document.getElementById('pageToday').classList.add('hidden');
-  const future=document.getElementById('pageFuture');future.classList.remove('hidden');future.classList.add('fade-in');
-  document.getElementById('stepLabel').textContent='Step 2 of 2';
-  document.getElementById('heroTitle').textContent='Now imagine the year 2060.';
-  document.getElementById('heroText').innerHTML='Read the future scenario below. Then answer the same question again using <strong>Value A</strong>, <strong>Value B</strong> and <strong>Value C</strong>.';
-  document.getElementById('progress').style.width='100%';window.scrollTo({top:0,behavior:'smooth'});
-});
-const SUPABASE_URL='https://bepruljjnztxpeufxigy.supabase.co';
-const SUPABASE_KEY='sb_publishable_JyPnq-0TjfVPXX-tfW1Gbw_z4OLNbxW';
-const RESPONDENT_KEY='digitalSocietyRespondentId';
-const SUBMITTED_KEY='digitalSocietySubmitted';
-function respondentId(){let id=localStorage.getItem(RESPONDENT_KEY);if(!id){id=crypto.randomUUID();localStorage.setItem(RESPONDENT_KEY,id)}return id}
-if(localStorage.getItem(SUBMITTED_KEY)==='true'){
-  const btn=document.getElementById('submit');btn.disabled=true;btn.textContent='Response already submitted';
-}
-document.getElementById('submit').addEventListener('click',async()=>{
-  const btn=document.getElementById('submit');
-  if(!state.today||!state.future||localStorage.getItem(SUBMITTED_KEY)==='true')return;
-  btn.disabled=true;btn.textContent='Submitting...';
-  const payload={respondent_id:respondentId(),today_a:state.today[0],today_b:state.today[1],today_c:state.today[2],future_a:state.future[0],future_b:state.future[1],future_c:state.future[2]};
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/survey_responses`,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(payload)});
-    if(!res.ok)throw new Error(await res.text());
-    localStorage.setItem(SUBMITTED_KEY,'true');
-    document.getElementById('success').style.display='block';
-    btn.textContent='Response submitted';
-  }catch(err){
-    console.error(err);btn.disabled=false;btn.textContent='Submit response';
-    alert('Your response could not be submitted. Please check your connection and try again.');
-  }
-});
-</script>
 </body>
 </html>
